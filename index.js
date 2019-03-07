@@ -6,8 +6,8 @@ const livescores = require('./livescores');
 const history = require('./history');
 
 const apiUrl = 'http://livescore-api.com/api-client/';
-let key = 'jKmNacIioQWUs3UD';
-let secret = 'Re1D24KqMVULrKBKvYxGbgYA7UuAYodQ';
+let key = '';
+let secret = '';
 
 const buildUrl = (route, parameters = []) => {
     let url = apiUrl + route;
