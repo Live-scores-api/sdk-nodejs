@@ -1,9 +1,9 @@
 const request = require('request');
-const fixtures = require('./fixtures');
-const leagues = require('./leagues');
-const countries = require('./countries');
-const livescores = require('./livescores');
-const history = require('./history');
+const fixtures = require('./features/fixtures');
+const leagues = require('./features/leagues');
+const countries = require('./features/countries');
+const livescores = require('./features/livescores');
+const history = require('./features/history');
 
 const apiUrl = 'http://livescore-api.com/api-client/';
 let key = '';
@@ -40,15 +40,3 @@ const checkKeySecret = () => {
         return res.body.data.message;
     });
 };
-
-
-// ///test
-// getHistoryLeagueLanguage(10, 'ru', (err, liveScores) => {
-//     if (err) {
-//         //handel error
-//         console.error(err);
-//     } else {
-//         // do stuff 
-//         console.log(liveScores);
-//     }
-// });

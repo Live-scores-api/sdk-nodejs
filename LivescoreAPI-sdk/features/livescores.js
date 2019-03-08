@@ -1,4 +1,4 @@
-const checkers = require('./checkers');
+const checkers = require('../checkers/checkers');
 
 //get livescores
 const getAllLiveScores = (callback) => {
