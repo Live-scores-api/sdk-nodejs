@@ -1,3 +1,19 @@
+//function to build the url for the request
+const buildUrl = (route, parameters = []) => {
+    let url = apiUrl + route;
+
+    const params = new URLSearchParams();
+    params.set('key', key);
+    params.set('secret', secret);
+    parameters.forEach(paramObj => {
+        params.set(paramObj.name, paramObj.value);
+    });
+
+    url += '?' + params.toString();
+    return url;
+};
+
+
 //function to check if country/league/page is integer and > 0
 // 0 -> no integer, -1 -> <0, 1 -> correct
 const checkCoLePa = (coLePa) => {
@@ -47,5 +63,6 @@ const checkDate = (date) => {
 module.exports = {
     checkCoLePa,
     checkDate,
-    checkLanguage
+    checkLanguage,
+    buildUrl
 }

@@ -1,8 +1,8 @@
-const checkers = require('../checkers/checkers');
+const checkers = require('./../checkers/checkers');
 
 //get livescores
 const getAllLiveScores = (callback) => {
-    request(buildUrl('scores/live.json'), {
+    request(checkers.buildUrl('scores/live.json'), {
         json: true
     }, (err, res, body) => {
         if (err) {
@@ -22,7 +22,7 @@ const getLiveScoresByCountry = (country, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The country id must be bigger than 0!"));
     } else {
-        request(buildUrl('scores/live.json', [{
+        request(checkers.buildUrl('scores/live.json', [{
             name: 'country',
             value: country
         }]), (err, res, body) => {
@@ -43,7 +43,7 @@ const getLiveScoresByLeague = (league, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     } else {
-        request(buildUrl('scores/live.json', [{
+        request(checkers.buildUrl('scores/live.json', [{
             name: 'league',
             value: league
         }]), (err, res, body) => {
@@ -64,7 +64,7 @@ const getLiveScoresInLanguage = (language, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The language must be one of the following: [ar, fa, en, ru]!"));
     } else {
-        request(buildUrl('scores/live.json', [{
+        request(checkers.buildUrl('scores/live.json', [{
             name: 'lang',
             value: language
         }]), (err, res, body) => {
@@ -98,7 +98,7 @@ const getLiveScoresCountryLeagueLanguage = (country, league, language, callback)
         return callback(new Error("Incorrect parameter! The country id must be bigger than 0!"));
     }
     if (checkCountry == 1 && checkLeague == 1 && checkLanguage == 1) {
-        request(buildUrl('scores/live.json', [{
+        request(checkers.buildUrl('scores/live.json', [{
             name: 'country',
             value: country
         }, {
@@ -134,7 +134,7 @@ const getLiveScoresCountryLanguage = (country, language, callback) => {
         return callback(new Error("Incorrect parameter! The country id must be bigger than 0!"));
     }
     if (checkCountry == 1 && checkLanguage == 1) {
-        request(buildUrl('scores/live.json', [{
+        request(checkers.buildUrl('scores/live.json', [{
             name: 'country',
             value: country
         }, {
@@ -167,7 +167,7 @@ const getLiveScoresCountryLeague = (country, league, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkCountry == 1 && checkLeague == 1) {
-        request(buildUrl('scores/live.json', [{
+        request(checkers.buildUrl('scores/live.json', [{
             name: 'country',
             value: country
         }, {
@@ -200,7 +200,7 @@ const getLiveScoresLeagueLanguage = (league, language, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLeague == 1 && checkLanguage == 1) {
-        request(buildUrl('scores/live.json', [{
+        request(checkers.buildUrl('scores/live.json', [{
             name: 'league',
             value: league
         }, {
@@ -225,5 +225,6 @@ module.exports = {
     getLiveScoresCountryLanguage,
     getLiveScoresCountryLeagueLanguage,
     getLiveScoresInLanguage,
-    getLiveScoresLeagueLanguage
+    getLiveScoresLeagueLanguage,
+    getLiveScoresCountryLeague,
 }

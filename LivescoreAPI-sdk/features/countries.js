@@ -1,6 +1,8 @@
+const checkers = require('./../checkers/checkers');
+
 //get countries 
 const getAllCountries = (callback) => {
-    request(buildUrl("countries/list.json"), {
+    request(checkers.buildUrl("countries/list.json"), {
         json: true
     }, (err, res, body) => {
         if (err) {
@@ -12,5 +14,5 @@ const getAllCountries = (callback) => {
 };
 
 module.exports = {
-    countries
+    getAllCountries
 }

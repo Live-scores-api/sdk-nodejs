@@ -1,8 +1,8 @@
-const checkers = require('../checkers/checkers');
+const checkers = require('./../checkers/checkers');
 
 //get history
 const getFullHistory = (callback) => {
-    request(buildUrl("scores/history.json"), {
+    request(checkers.buildUrl("scores/history.json"), {
         json: true
     }, (err, res, body) => {
         if (err) {
@@ -15,7 +15,7 @@ const getFullHistory = (callback) => {
 
 //get history from this date onwards   PARAMETER => string (yyyy-mm-dd)
 const getHistoryFromDate = (date, callback) => {
-    request(buildUrl('scores/history.json', [{
+    request(checkers.buildUrl('scores/history.json', [{
         name: 'from',
         value: date
     }]), {
@@ -31,7 +31,7 @@ const getHistoryFromDate = (date, callback) => {
 
 //get history until this date included    PARAMETER => string (yyyy-mm-dd)
 const getHistoryToDate = (date, callback) => {
-    request(buildUrl('scores/history.json', [{
+    request(checkers.buildUrl('scores/history.json', [{
         name: 'to',
         value: date
     }]), {
@@ -53,7 +53,7 @@ const getHistoryByLeague = (league, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     } else {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'league',
             value: league
         }]), {
@@ -77,7 +77,7 @@ const getHistoryFromPage = (page, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The page must be bigger than 0!"));
     } else {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'page',
             value: page
         }]), {
@@ -100,7 +100,7 @@ const getHistoryInLanguage = (language, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The language must be one of the following: [ar, fa, en, ru]!"));
     } else {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'lang',
             value: language
         }]), {
@@ -142,7 +142,7 @@ const GetHistoryBetweendDatesCountryLanguage = (fromDate, toDate, league, langua
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLanguage == 1 && checkLeague == 1 && checkFromDate == 1 && checkToDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'from',
             value: fromDate
         }, {
@@ -187,7 +187,7 @@ const getHistoryBetweenDatesLeague = (fromDate, toDate, league, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLeague == 1 && checkFromDate == 1 && checkToDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'from',
             value: fromDate
         }, {
@@ -232,7 +232,7 @@ const getHistoryBetweenDatesLanguage = (fromDate, toDate, language, callback) =>
         return callback(new Error("Incorrect parameter! The language must be one of the following: [ar, fa, en, ru]!"));
     }
     if (checkLeague == 1 && checkFromDate == 1 && checkToDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'from',
             value: fromDate
         }, {
@@ -282,7 +282,7 @@ getHistoryFromDateLeagueLanguage = (fromDate, league, language, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLanguage == 1 && checkLeague == 1 && checkFromDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'from',
             value: fromDate
         }, {
@@ -332,7 +332,7 @@ const getHistoryToDateLeagueLanguage = (toDate, league, language, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLanguage == 1 && checkLeague == 1 && checkToDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'to',
             value: toDate
         }, {
@@ -370,7 +370,7 @@ const getHistoryBetweenDates = (fromDate, toDate, callback) => {
     } else if (checkFromDate == 4 || checkToDate == 4) {
         return callback(new Error("Incorrect parameter! The day must be in this format: DD"));
     } else if (checkFromDate == 1 && checkToDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'from',
             value: fromDate
         }, {
@@ -411,7 +411,7 @@ const getHistoryFromDateLeague = (fromDate, league, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLeague == 1 && checkFromDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'from',
             value: fromDate
         }, {
@@ -452,7 +452,7 @@ const getHistoryFromDateLanguage = (fromDate, languge, callback) => {
         return callback(new Error("Incorrect parameter! The language must be one of the following: [ar, fa, en, ru]!"));
     }
     if (checkLanguage == 1 && checkFromDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'from',
             value: fromDate
         }, {
@@ -493,7 +493,7 @@ const getHistoryToDateLeague = (toDate, league, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLeague == 1 && checkToDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'to',
             value: toDate
         }, {
@@ -534,7 +534,7 @@ const getHistoryToDateLanguage = (toDate, language, callback) => {
         return callback(new Error("Incorrect parameter! The language must be one of the following: [ar, fa, en, ru]!"));
     }
     if (checkLanguage == 1 && checkToDate == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'to',
             value: toDate
         }, {
@@ -567,7 +567,7 @@ getHistoryLeagueLanguage = (league, language, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLanguage == 1 && checkLeague == 1) {
-        request(buildUrl('scores/history.json', [{
+        request(checkers.buildUrl('scores/history.json', [{
             name: 'league',
             value: league
         }, {

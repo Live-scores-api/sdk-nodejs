@@ -1,8 +1,8 @@
-const checkers = require('../checkers/checkers');
+const checkers = require('./../checkers/checkers');
 
 //get leagues
 const getAllLeagues = (callback) => {
-    request(buildUrl('leagues/list.json'), {
+    request(checkers.buildUrl('leagues/list.json'), {
         json: true
     }, (err, res, body) => {
         if (err) {
@@ -15,7 +15,7 @@ const getAllLeagues = (callback) => {
 
 //get leagues with fixtures
 const getLeaguesWithFixtures = (callback) => {
-    request(buildUrl('fixtures/leagues.json'), {
+    request(checkers.buildUrl('fixtures/leagues.json'), {
         json: true
     }, (err, res, body) => {
         if (err) {
@@ -35,7 +35,7 @@ const getLeaguesFromCountry = (country, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The country id must be bigger than 0!"));
     } else if (check == 1) {
-        request(buildUrl("leagues/list.json", [{
+        request(checkers.buildUrl("leagues/list.json", [{
             name: 'country',
             value: country
         }]), {

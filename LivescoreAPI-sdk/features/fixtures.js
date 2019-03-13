@@ -1,8 +1,8 @@
-const checkers = require('../checkers/checkers');
+const checkers = require('./../checkers/checkers');
 
 //get all fixtures 
 const getAllFixtures = (callback) => {
-    request(buildUrl('fixtures/matches.json'), {
+    request(checkers.buildUrl('fixtures/matches.json'), {
         json: true
     }, (err, res, body) => {
         if (err) {
@@ -25,7 +25,7 @@ const getFixturesFromDate = (date, callback) => {
     } else if (check == 4) {
         return callback(new Error("Incorrect parameter! The day must be in this format: DD"));
     }
-    request(buildUrl('fixtures/matches.json', [{
+    request(checkers.buildUrl('fixtures/matches.json', [{
         name: 'date',
         value: date
     }]), {
@@ -47,7 +47,7 @@ const getFixturesFromLeague = (league, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     } else {
-        request(buildUrl('fixtures/matches.json', [{
+        request(checkers.buildUrl('fixtures/matches.json', [{
             name: 'league',
             value: league
         }]), {
@@ -70,7 +70,7 @@ const getFixturesInLanguage = (language, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The language must be one of the following: [ar, fa, en, ru]!"));
     } else {
-        request(buildUrl('fixtures/matches.json', [{
+        request(checkers.buildUrl('fixtures/matches.json', [{
             name: 'lang',
             value: language
         }]), {
@@ -93,7 +93,7 @@ const getFixturesFromPage = (page, callback) => {
     } else if (check == -1) {
         return callback(new Error("Incorrect parameter! The page must be bigger than 0!"));
     } else {
-        request(buildUrl('fixtures/matches.json', [{
+        request(checkers.buildUrl('fixtures/matches.json', [{
             name: 'page',
             value: page
         }]), {
@@ -133,7 +133,7 @@ const getFixturesDateLanguageLeague = (date, language, league, callback) => {
         return callback(new Error("Incorrect parameter! The day must be in this format: DD"));
     }
     if (checkDate == 1 && checkLanguage == 1 && checkLeague == 1) {
-        request(buildUrl('fixtures/matches.json', [{
+        request(checkers.buildUrl('fixtures/matches.json', [{
             name: 'date',
             value: date
         }, {
@@ -173,7 +173,7 @@ const getFixturesDateLanguage = (date, language, callback) => {
         return callback(new Error("Incorrect parameter! The day must be in this format: DD"));
     }
     if (checkDate == 1 && checkLanguage == 1) {
-        request(buildUrl('fixtures/matches.json', [{
+        request(checkers.buildUrl('fixtures/matches.json', [{
             name: 'date',
             value: date
         }, {
@@ -210,7 +210,7 @@ const getFixturesDateLeague = (date, league) => {
         return callback(new Error("Incorrect parameter! The day must be in this format: DD"));
     }
     if (checkDate == 1 && checkLeague == 1) {
-        request(buildUrl('fixtures/matches.json', [{
+        request(checkers.buildUrl('fixtures/matches.json', [{
             name: 'date',
             value: date
         }, {
@@ -243,7 +243,7 @@ const getFixturesLeagueLanguage = (league, language, callback) => {
         return callback(new Error("Incorrect parameter! The league id must be bigger than 0!"));
     }
     if (checkLanguage == 1 && checkLeague == 1) {
-        request(buildUrl('fixtures/matches.json', [{
+        request(checkers.buildUrl('fixtures/matches.json', [{
             name: 'league',
             value: league
         }, {
