@@ -473,7 +473,7 @@ function LivescoreAPI (key, secret, apiUrl){
     };
 
     // get history between 2 dates from a certain league in a certain language
-    this.GetHistoryBetweendDatesCountryLanguage = (fromDate, toDate, league, language, callback) => {
+    this.getHistoryBetweendDatesCountryLanguage = (fromDate, toDate, league, language, callback) => {
         checkFromDate = this.checkDate(fromDate);
         checkToDate = this.checkDate(toDate);
         checkLeague = this.checkCoLePa(league);
@@ -1205,7 +1205,6 @@ function LivescoreAPI (key, secret, apiUrl){
         }
     }
 
-    // this.getLiveScoresCountryLanguage = livescores.getLiveScoresCountryLanguage;
 
     return this;
 }
