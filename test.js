@@ -1,6 +1,6 @@
 const livescoreapi = require("./LivescoreAPI-sdk/index");
 
-client = livescoreapi.LivescoreAPI("jKmNacIioQWUs3UD", "Re1D24KqMVULrKBKvYxGbgYA7UuAYodQ", 'http://livescore-api.com/api-client/')
+client = livescoreapi.LivescoreAPI("<KEY>", "<SECRET>", 'http://livescore-api.com/api-client/')
 
 // client.getAllCountries((err, countries) => {
 //     if (err) {

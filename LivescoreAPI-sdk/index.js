@@ -1,12 +1,6 @@
 const request = require('request');
-// const fixtures = require('./features/fixtures');
-// const leagues = require('./features/leagues');
-// const countries = require('./features/countries');
-// const livescores = require('./features/livescores');
-// const history = require('./features/history');
-// const checkers = require('./checkers/checkers');
 
-const apiUrl = 'http://livescore-api.com/api-client/';
+const apiUrl = '';
 let key = '';
 let secret = '';
 
@@ -31,7 +25,7 @@ function LivescoreAPI (key, secret, apiUrl){
             params.set(paramObj.name, paramObj.value);
         });
 
-        url += '?' + params.toString();
+        url += '?' + params.toString() + "&package=nodejs";
         return url;
     }
 
