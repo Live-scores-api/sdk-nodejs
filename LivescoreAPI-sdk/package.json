@@ -1,7 +1,7 @@
 {
-  "name": "npm_module_example",
+  "name": "livescoreapi",
   "version": "1.0.0",
-  "description": "just an example",
+  "description": "NPM package that simplifies requests to Livescore-API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,7 @@
   "keywords": [
     "example"
   ],
-  "author": "A Chiosa",
+  "author": "Alin Chiosa",
   "license": "ISC",
   "dependencies": {
     "request": "^2.88.0"

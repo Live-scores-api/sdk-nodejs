@@ -1,9 +1,19 @@
 # Livescore API - simplified HTTP client
 http://livescore-api.com/
 
+## Installation
+
+This module is installed via npm 
+
+```shell
+$ npm install --save livescoreapi
+```
 
 ## Super simple to use
 Livescoreapi package is designed to be the simplest way possible to make http requests to the Livescore API
+
+The easiest way ever to create an awesome API... no, really. It's as simple as:
+
 
 ```js
 const client = require('livescoreapi');
