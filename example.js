@@ -1,4 +1,4 @@
-const livescoreapi = require("./LivescoreAPI-sdk/index");
+const livescoreapi = require("livescoreapi");
 
 client = livescoreapi.LivescoreAPI("<KEY>", "<SECRET>", 'http://livescore-api.com/api-client/');
 
